@@ -3,11 +3,9 @@ print("7.1")
 print("We have the date in american format is: 07.22.2017")
 current_date = "07.22.2017"
 lst = current_date.split(".")
-a = lst[0]
-lst[0] = lst[1]
-lst[1] = a
-my_string = ".".join(lst)
-print("The date in european format is: ",  my_string)
+lst[0], lst[1] = lst[1], lst[0]
+eu_date = ".".join(lst)
+print("The date in european format is: ",  eu_date)
 print("---------------------------------------------------------")
 
 print("7.2")
@@ -45,9 +43,7 @@ lst1 = date_of_birth.split("-")
 year_of_birth = lst1[0]
 lst2 = date_of_death.split("-")
 year_of_death = lst2[0]
-Y1 = int(year_of_birth)
-Y2 = int(year_of_death)
-age = Y2 - Y1
+age = int(year_of_death) - int(year_of_birth)
 print("The information about person is: %s,%d years old" % (name, age))
 print("---------------------------------------------------------")
 
