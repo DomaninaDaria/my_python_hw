@@ -16,20 +16,20 @@ print("------------------------")
 
 
 print("3.")
-d=(a + b)/12 * c % 4 + b
+d = (a + b) / 12 * c % 4 + b
 print("(%d + %d)12 * %d%%4 + %d = %.3f " % (a, b, c, b, d))
 print("------------------------")
 
 
 print("4.")
-d = (a-b * c)/(a + b) % c
+d = (a - b*c) / (a + b) % c
 print("(%d-%d * %d)/(%d + %d)%%%d = %.3f" % (a, b, c, a, b, c, d))
 print("------------------------")
 
 
 print("5.")
 c = math.radians(180)
-d = abs(a-b)/pow((a + b), 3) - math.cos(c)
+d = abs(a - b) / pow((a + b), 3) - math.cos(c)
 print("|%d-%d|/(%d + %d)^3-cos(%f) = %.5f" % (a, b, a, b, c, d))
 print("------------------------")
 
@@ -38,7 +38,7 @@ print("6.1")
 c = 13
 a = -15
 print("(ln(1 + %d)/(-%d))^4 + |%d| = " % (c, b, a))
-if(1+c) >= 0:
+if (1 + c) >= 0:
     d = (pow(math.log1p(1 + c) / (-b), 4) + abs(a))
     print("result is %.3f" % d)
 else:
@@ -49,7 +49,7 @@ print("------------------------")
 print("6.2")
 c = -13
 print("(ln(1 + %d)/(-%d))^4 + |%d| = " % (c, b, a))
-if(1+c) >= 0:
+if (1 + c) >= 0:
     d = (pow(math.log1p(1 + c) / (-b), 4) + abs(a))
     print("(ln(1 + %d)/(-%d))^4 + |%d| = %.3f" % (c, b, a, d))
 else:
