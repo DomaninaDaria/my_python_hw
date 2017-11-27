@@ -6,8 +6,8 @@ print("Exercise 15")
 
 
 def circles_intersection(x1, y1, r1, x2, y2, r2):
-    return math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2) < (r1 + r2) \
-           and math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2) > math.fabs(r2 - r1)
+    s = math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)
+    return s < (r1 + r2) and s > math.fabs(r2 - r1) or (s == 0 and r1 == r2) or (s == r1 + r2)
 
 
 x_2 = int(input("Input value of x2: "))
@@ -31,12 +31,11 @@ else:
 print("Exercise 16")
 
 
-s = 10
-s1 = 4
+
 
 
 def have_trains_crashed(v1, v2):
-    return s1 / v1 < (s - s1) / v2
+    return 4 / v1 >= 6 / v2
 
 
 speed1 = 0
@@ -56,15 +55,19 @@ print("Exercise 17")
 
 def solve_quadratic_equation(a, b, c):
     d = b**2 - 4*a*c
-    if d < 0:
-        print("This quadratic equation does not have solution")
-    else:
-        x1 = ((-b) + math.sqrt(d)) / (2 * a)
-        x2 = ((-b) - math.sqrt(d)) / (2 * a)
-        print("First root of the equation = %.3f, second = %.3f." % (x1, x2))
+    if d > 0:
+        x1 = round(((-b) + math.sqrt(d)) / (2 * a), 3)
+        x2 = round(((-b) - math.sqrt(d)) / (2 * a), 3)
+    elif d == 0:
+        x1 = round((-b) / (2*a), 3)
+        x2 = None
+    else: x1 = x2 = None
+    return x1, x2
 
 
-solve_quadratic_equation(4, 3, -5)
+print("First root of the equation = %s, second = %s." % solve_quadratic_equation(4, 5, -7))
+
+
 
 
 print("Exercise 19")
@@ -122,16 +125,14 @@ print("Exercise 21")
 
 
 def get_max_digit(number):
-    b = [0] * len(list(str(number)))
-    max_bound = 0
-    for i in range(len(list(str(number)))):
+    max_digit = 0
+    for i in range(len(str(number))):
         figure = number % 10
-        b[i] = figure
         number = number // 10
-        if max_bound < b[i]:
-            max_bound = b[i]
+        if max_digit < figure:
+            max_digit = figure
 
-    return max_bound
+    return max_digit
 
 
 number1 = int(input("Input your number: "))
