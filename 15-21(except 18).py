@@ -61,7 +61,8 @@ def solve_quadratic_equation(a, b, c):
     elif d == 0:
         x1 = round((-b) / (2*a), 3)
         x2 = None
-    else: x1 = x2 = None
+    else:
+        x1 = x2 = None
     return x1, x2
 
 
@@ -126,12 +127,11 @@ print("Exercise 21")
 
 def get_max_digit(number):
     max_digit = 0
-    for i in range(len(str(number))):
+    while number != 0:
         figure = number % 10
         number = number // 10
         if max_digit < figure:
             max_digit = figure
-
     return max_digit
 
 
