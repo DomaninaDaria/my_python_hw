@@ -5,7 +5,7 @@ print("--------------------------------22--------------------------------")
 def group_by_surname(list_of_enrollees):
     group1 = group2 = group3 = group4 = 0
     for student in list_of_enrollees:
-        first_surname_letter = student.split(" ")[1]
+        first_surname_letter = student.split(" ")[1][0]
         if "A" <= first_surname_letter <= "I":
             group1 += 1
         elif "J" <= first_surname_letter <= "P":
@@ -57,8 +57,8 @@ def sum_symbol_codes(first, last):
     first_symbol = ord(first)
     last_symbol = ord(last)
     counter = 0
-    for quantity in range(first_symbol, last_symbol+1):
-        counter += quantity
+    for symbol_code in range(first_symbol, last_symbol+1):
+        counter += symbol_code
     return counter
 
 print(sum_symbol_codes("A", "B"))
