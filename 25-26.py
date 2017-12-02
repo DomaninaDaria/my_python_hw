@@ -45,27 +45,18 @@ def calc_frequency(lst):
             gr2 += 1
         elif lst[i] == 1:
             gr3 += 1
-    print(gr1, gr2, gr3)
-    if gr1 != gr2 and gr2 != gr3 and gr1 != gr3 or gr1 == gr2 == 0 and gr3 > gr1 or gr2 == gr3 == 0 \
-            and gr1 > gr2 or gr1 == gr3 and gr1 < gr3:
-        max_group = max(gr1, gr2, gr3)
-        print(max_group)
-        if max_group == gr1:
-            most_frequent = -1
-        elif max_group == gr2:
-            most_frequent = 0
-        else:
-            most_frequent = 1
+    if max(gr1, gr2, gr3) == gr1 and gr1 != gr2 != gr3 or max(gr1, gr2, gr3) == gr1 and gr2 == gr3 == 0:
+        most_frequent = -1
+    elif max(gr1, gr2, gr3) == gr2 and gr1 != gr2 != gr3 or max(gr1, gr2, gr3) == gr2 and gr1 == gr3 == 0 :
+        most_frequent = 0
+    elif max(gr1, gr2, gr3) == gr3 and gr1 != gr2 != gr3 or max(gr1, gr2, gr3) == gr3 and gr2 == gr1 == 0 :
+        most_frequent = 1
     else:
         most_frequent = None
 
     return most_frequent
 
-
-lst3 = [0, 0, 0, 0, 0, 0, 0]
-print(lst3)
-print("The most repeated number is %s" % calc_frequency(lst3))
-
+print("The most repeated number is %s" % calc_frequency(lst2))
 
 
 
