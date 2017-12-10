@@ -7,7 +7,7 @@ def pemrtuate(text):
     lst = text.split(" ")
     print(lst)
     for i in range(len(lst)):
-        lst2 = [] * 100
+        lst2 = [] * len(lst[i])
         index = (len(lst[i])-1)
         for j in range(1, len(lst[i])-1):
             lst2 += lst[i][j]
