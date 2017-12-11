@@ -67,6 +67,7 @@ def isogram(string):
         for j in range(i+1, len(string)):
             if string[i] == string[j] and string[i] != " ":
                 has_repeats = True
+                break
 
     if has_repeats:
         print("Your string is not isogram")
