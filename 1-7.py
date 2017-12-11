@@ -33,14 +33,14 @@ print("-------------------------4------------------------")
 number = int(input("Input number : "))
 
 def amount_of_not_even_digits(value):
-    sum = 0
+    product = 1
     while value != 0:
         if (value % 10) % 2 != 0:
-            sum += value % 10
+            product *= value % 10
         value //= 10
-    return sum
+    return product
 
-print("sum of not even digits is ", amount_of_not_even_digits(number))
+print("product of not even digits is ", amount_of_not_even_digits(number))
 
 import math
 
@@ -50,8 +50,8 @@ our_number = 10
 your_number_1 = float(input("Input number 1: "))
 your_number_2 = float(input("Input number 2: "))
 if abs(our_number - your_number_1) < abs(our_number - your_number_2):
-    print("Number 1 is nearer than number 2, number 1 = ", your_number_1 )
-elif abs(our_number - your_number_1)> abs(our_number - your_number_2):
+    print("Number 1 is nearer than number 2, number 1 = ", your_number_1)
+elif abs(our_number - your_number_1) > abs(our_number - your_number_2):
     print("Number 2 is nearer than number 1, number 2 = ", your_number_2)
 else:
     print("Same distance")
@@ -62,13 +62,13 @@ string2 = "изограмма"
 
 
 def isogram(string):
-    f = False
+    has_repeats = False
     for i in range(0, len(string)-1):
-         for j in range(i+1, len(string)):
+        for j in range(i+1, len(string)):
             if string[i] == string[j] and string[i] != " ":
-                f = True
+                has_repeats = True
 
-    if f:
+    if has_repeats:
         print("Your string is not isogram")
     else:
         print("Your string is isogram")
@@ -86,6 +86,7 @@ def sum_of_fib(amount):
         fib_list.append(fib_list[i-1] + fib_list[i - 2])
     our_sum = sum(fib_list)
     return our_sum
+
 
 print(sum_of_fib(10))
 
