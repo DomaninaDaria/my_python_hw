@@ -13,13 +13,13 @@ for i in range(N):
 for i in range(N):
     for j in range(M):
         if j % 2 == 0:
-            for k in range(M-1):
+            for k in range(N-1):
                 while massif[k][j] > massif[k+1][j]:
                     temp = massif[k][j]
                     massif[k][j] = massif[k+1][j]
                     massif[k+1][j] = temp
         else:
-            for k in range(M-1):
+            for k in range(N-1):
                 while massif[k][j] < massif[k+1][j]:
                     temp = massif[k][j]
                     massif[k][j] = massif[k+1][j]
