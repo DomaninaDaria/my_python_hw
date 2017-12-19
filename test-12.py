@@ -10,8 +10,7 @@ while len(result) != 15:
     k += 1
     number1 = random.choice(list_of_values)
     number2 = random.choice(list_of_values)
-    list_of_used_values.append(number1)
-    list_of_used_values.append(number2)
+    list_of_used_values += [number1, number2]
     for j in range(len(list_of_used_values) - index):
         if number1 == list_of_used_values[2*j] and number2 == list_of_used_values[2*j + 1] \
                 or number1 == list_of_used_values[2*j + 1] and number2 == list_of_used_values[2*j]:
