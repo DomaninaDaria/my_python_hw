@@ -1,37 +1,43 @@
 import random
 
+MIN_WEIGHT = 50
+MAX_WEIGHT = 100
+
 
 class Godzilla:
-    def __init__(self, size_of_stomach):
-        self.capacity = size_of_stomach
+    def __init__(self, size_of_stomach, name):
+        self.capacity = size_of_stomach #700
+        self.name = name
+        self.empty_capacity = self.capacity/100*90  #630
 
+    def print_info(self):
+        print("Hello, i am Godzilla, my name is %s and i would like to eat some people, capacity of my stomach is %d " %(self.name, self.capacity))
 
-min_weight = 50
-max_weight = 100
+    def eat(self):
+        print("My capacity of stomach that i want to fill =", self.capacity)
+        while self.empty_capacity != 0:
+            # input(print("if you would like to feed me, you just have to press enter and we will find a food:"))
+            person_weight = random.randint(MIN_WEIGHT, MAX_WEIGHT)
+            if (self.empty_capacity - person_weight) > 0:
+                print("We found a human with weight = %d, so, empty capacity in my stomach = %d " % (person_weight, self.empty_capacity - person_weight))
+                print("I want more")
+                print()
+                self.empty_capacity -= person_weight
 
-
-def main():
-    def eat(weight_of_human):
-        godzilla_1 = Godzilla(700)
-        empty_place_that_has_to_remain = godzilla_1.capacity / 10
-        while godzilla_1.capacity > empty_place_that_has_to_remain:
-            if (godzilla_1.capacity - weight_of_human) > empty_place_that_has_to_remain:
-                print("%d - %d " % (godzilla_1.capacity, weight_of_human))
-                godzilla_1.capacity -= weight_of_human
-                print("empty place = ", godzilla_1.capacity)
-            elif (godzilla_1.capacity - min_weight) > empty_place_that_has_to_remain:
-                print("We have to find a human with certain weight = ", godzilla_1.capacity - empty_place_that_has_to_remain)
-                godzilla_1.capacity -= godzilla_1.capacity - empty_place_that_has_to_remain
-                print("We eat him/ her, so, godzilla_1 is full")
+            elif (self.empty_capacity - MIN_WEIGHT) > 0:
+                print("We have to find a human with certain weight = ", self.empty_capacity)
+                self.empty_capacity -= self.empty_capacity
+                print("I eat him/ her, so, empty place of my stomach = %d and i am full!" % self.empty_capacity)
                 break
             else:
-                print("Godzilla is full")
+                print("Godzilla %s is full" % self.name)
                 break
-    eat(random.randint(min_weight, max_weight))
 
 
 if __name__ == "__main__":
-    main()
+    godzilla_1 = Godzilla(700, "Blake")
+    godzilla_1.print_info()
+    godzilla_1.eat()
 
 
 
