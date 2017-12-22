@@ -2,20 +2,20 @@ import random
 
 MIN_WEIGHT = 50
 MAX_WEIGHT = 100
-NINETY_PERCENT = 0.9
+STOMACH_CAPACITY_LIMIT = 0.9
 
 
 class Godzilla:
     def __init__(self, size_of_stomach, name):
         self.capacity = size_of_stomach #700
         self.name = name
-        self.empty_capacity = self.capacity * NINETY_PERCENT #630
+        self.empty_capacity = self.capacity * STOMACH_CAPACITY_LIMIT #630
 
     def print_info(self):
         print("Hello, i am Godzilla, my name is %s and i would like to eat some people, capacity of my stomach is %d " % (self.name, self.capacity))
 
     def eat(self):
-        print("My capacity of stomach that i want to fill = ", round(self.capacity * NINETY_PERCENT))
+        print("My capacity of stomach that i want to fill = ", round(self.capacity * STOMACH_CAPACITY_LIMIT))
         while self.empty_capacity != 0:
             # input(print("if you would like to feed me, you just have to press enter and we will find a food:"))
             person_weight = random.randint(MIN_WEIGHT, MAX_WEIGHT)
