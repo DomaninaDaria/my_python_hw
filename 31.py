@@ -103,11 +103,12 @@ def count_all_entries_in_phonebook():
 
 def print_phonebook_by_age():
     print("by age")
-    for i in range(len(phone_book) - 1):
-        if phone_book[i]["age"] < phone_book[i + 1]["age"]:
-            temp = phone_book[i+1]
-            phone_book[i + 1] = phone_book[i]
-            phone_book[i] = temp
+    idx = 1
+    phone_book.sort(key=lambda elem: elem["age"], reverse=True)
+    for entry in phone_book:
+        print_entry(idx, entry)
+        idx += 1
+
     print_phonebook()
 
 
