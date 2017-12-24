@@ -109,7 +109,6 @@ def print_phonebook_by_age():
         print_entry(idx, entry)
         idx += 1
 
-    print_phonebook()
 
 
 def increase_age():
